@@ -1,18 +1,11 @@
-function getIntervalArray(start, end) {
-  const arr = Array(end - start);
-  //console.log(arr);
-  const newArr = arr.map((el, index) => {
-    console.log(start);
-    return start + index;
-  })
-
-  return newArr;
-
-  // const arr = [];
-  // for (let i = start; i <= end; i += 1) {
-  //   arr.push(i);
-  // }
-  // return arr;
-  // throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const arr = Array(n).fill(0);
+  const arr2 = Array(n).fill(0);
+  return arr2.map((elem, index) => arr.map((el, i) => {
+    if (i === index) return 1;
+    return 0;
+  }));
+  //  throw new Error('Not implemented');
 }
-console.log(getIntervalArray(-3, 3));
+
+console.log(getIdentityMatrix(5));

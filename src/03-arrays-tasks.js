@@ -256,8 +256,14 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  throw new Error('Not implemented');
+function getMovingSum(arr) {
+  const output = [];
+  arr.reduce((acc, val, index) => {
+    output[index] = acc + val;
+    return output[index];
+  }, 0);
+  return output;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -455,8 +461,13 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(/* arr */) {
-  throw new Error('Not implemented');
+function sortCitiesArray(arr) {
+  return arr.sort((a, b) => {
+    if (a.country > b.country) return 1;
+    if (a.country < b.country) return -1;
+    return a.city > b.city ? 1 : -1;
+  });
+  //  throw new Error('Not implemented');
 }
 
 /**
@@ -477,8 +488,14 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const arr = Array(n).fill(0);
+  const arr2 = Array(n).fill(0);
+  return arr2.map((elem, index) => arr.map((el, i) => {
+    if (i === index) return 1;
+    return 0;
+  }));
+  //  throw new Error('Not implemented');
 }
 
 /**
@@ -494,14 +511,10 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  // return Array(end - start).map((el, index) => el + start + index);
-  // const arr = [];
-  // for (let i = start; i <= end; i += 1) {
-  //   arr.push(i);
-  // }
-  // return arr;
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arr = Array(end - start + 1).fill(0);
+  return arr.map((el, index) => el + start + index);
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -568,8 +581,9 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.map((el) => childrenSelector(el)).flat();
+  // throw new Error('Not implemented');
 }
 
 
