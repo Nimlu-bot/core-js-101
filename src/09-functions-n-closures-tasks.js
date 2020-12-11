@@ -172,6 +172,21 @@ function partialUsingArguments(/* fn, ...args1 */) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(/* startFrom */) {
+  // /* eslint-disable-next-line */
+  // let id = startFrom;
+  // /* eslint-disable-next-line */
+  // getIdGeneratorFunction = function getId() {
+  //   id += 1;
+  //   return id;
+  // };
+  // return getIdGeneratorFunction();
+  /* eslint-disable-next-line */
+  // let id = startFrom;
+  // function getId() {
+  //   id += 1;
+  //   return getId;
+  // }
+  // return getId;
   throw new Error('Not implemented');
 }
 

@@ -1,32 +1,27 @@
-function getRectangleString(width, height) {
-  // const rectangle = [];
-  let str = '';
-  for (let i = 0; i < height; i += 1) {
-    const column = [];
-    if (i === 0) {
-      column.push('┌');
-      for (let j = 1; j < width - 1; j += 1) {
-        column.push('─');
-      }
-      column.push('┐');
-    } else if (i === height - 1) {
-      column.push('└');
-      for (let j = 1; j < width - 1; j += 1) {
-        column.push('─');
-      }
-      column.push('┘');
-    } else {
-      column.push('│');
-      for (let j = 1; j < width - 1; j += 1) {
-        column.push(' ');
-      }
-      column.push('│');
-    }
-    str += `${column.join('')}\n`;
-    console.log(str);
-  }
+// function getIdGeneratorFunction(startFrom) {
+//   let id = startFrom - 1;
+//   getIdGeneratorFunction = function getId() {
+//     id += 1;
+//     return id;
+//   }
+//   return getIdGeneratorFunction();
+//   // throw new Error('Not implemented');
+// }
+// console.log(getIdGeneratorFunction(6));
+// console.log(getIdGeneratorFunction());
+// console.log(getIdGeneratorFunction());
+// console.log(getIdGeneratorFunction());
+// console.log(getIdGeneratorFunction());
 
-  return str;
+function swapHeadAndTail(arr) {
+  if (arr.length <= 1) return arr;
+  if (arr.length % 2) {
+    const half = Math.trunc(arr.length / 2);
+    return arr.concat(arr.splice(half, 1).concat(arr.splice(0, half)));
+    //	return arr.splice(half, half - 1);
+  }
+  const half = Math.trunc(arr.length / 2);
+  return arr.concat(arr.splice(0, half));
   //  throw new Error('Not implemented');
 }
-console.log(getRectangleString(2, 2));
+console.log(swapHeadAndTail([1, 2, 3, 4, 5, 6, 7, 8, 9]));
