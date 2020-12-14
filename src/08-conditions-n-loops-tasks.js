@@ -128,8 +128,14 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  const maxTop = Math.max(rect1.top, rect2.top);
+  const minBottom = Math.min((rect1.top + rect1.height), (rect2.top + rect2.height));
+  const maxLeft = Math.max(rect1.left, rect2.left);
+  const minRight = Math.min((rect1.left + rect1.width), (rect2.left + rect2.width));
+  if (minBottom > maxTop && minRight > maxLeft) return true;
+  return false;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -161,8 +167,7 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
 function isInsideCircle(circle, point) {
   if (
     // eslint-disable-next-line operator-linebreak
-    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 <
-    circle.radius ** 2
+    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 < circle.radius ** 2
   ) {
     return true;
   }
@@ -181,14 +186,12 @@ function isInsideCircle(circle, point) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  // const arr = str.split();
-  // const string = str.split();
-  // for (let i = 0; i < string.length; i += 1) {
-  //   if (arr.indexOf(string[i]) !== -1) return string[i];
-  // }
-  // return null;
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) return str[i];
+  }
+  return null;
+  //  throw new Error('Not implemented');
 }
 
 /**
@@ -341,6 +344,7 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
+
 function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
 }
@@ -365,8 +369,17 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  const symbols = '0123456789'.split('');
+  const res = [];
+  const numSys = symbols.slice(0, n);
+  let numTmp = num;
+  while (numTmp > 0) {
+    res.push(numSys[numTmp % n]);
+    numTmp = Math.floor(numTmp / n);
+  }
+  return res.reverse().join('');
+  // throw new Error('Not implemented');
 }
 
 /**

@@ -153,8 +153,9 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args1) {
+  return (...args) => args1.concat(args).join('');
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -184,12 +185,16 @@ function getIdGeneratorFunction(/* startFrom */) {
   // };
   // return getIdGeneratorFunction();
   /* eslint-disable-next-line */
-  // let id = startFrom;
-  // function getId() {
+  // let id
+  // if (startFrom) {
+  //   id = startFrom;
+  // } else { id = 0; }
+  // /* eslint-disable-next-line */
+  // function getIdGeneratorFunction() {
   //   id += 1;
-  //   return getId;
+  //   return getIdGeneratorFunction;
   // }
-  // return getId;
+  // return getIdGeneratorFunction;
   throw new Error('Not implemented');
 }
 
