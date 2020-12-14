@@ -5,7 +5,6 @@
  *                                                                                                *
  ************************************************************************************************ */
 
-
 /**
  * Return Promise object that is resolved with string value === 'Hooray!!! She said "Yes"!',
  * if boolean value === true is passed, resolved with string value === 'Oh no, she said "No".',
@@ -29,18 +28,18 @@
  *                                                    //  Ask her again.';
  */
 function willYouMarryMe(isPositiveAnswer) {
-  const promise = new Promise(((resolve, reject) => {
-    if (typeof isPositiveAnswer !== 'boolean') reject(new Error('Wrong parameter is passed! Ask her again.'));
+  const promise = new Promise((resolve, reject) => {
+    if (typeof isPositiveAnswer !== 'boolean') {
+      reject(new Error('Wrong parameter is passed! Ask her again.'));
+    }
     resolve(isPositiveAnswer);
-  }))
-    .then((value) => {
-      if (value) return 'Hooray!!! She said "Yes"!';
-      return 'Oh no, she said "No".';
-    });
+  }).then((value) => {
+    if (value) return 'Hooray!!! She said "Yes"!';
+    return 'Oh no, she said "No".';
+  });
   return promise;
   // throw new Error('Not implemented');
 }
-
 
 /**
  * Return Promise object that should be resolved with array containing plain values.

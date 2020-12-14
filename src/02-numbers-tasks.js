@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and heigth.
  *
@@ -23,7 +22,6 @@ function getRectangleArea(width, height) {
   return width * height;
   // throw new Error('Not implemented');
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
@@ -54,7 +52,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return (value1 / 2) + (value2 / 2);
+  return value1 / 2 + value2 / 2;
   // throw new Error('Not implemented');
 }
 
@@ -95,7 +93,6 @@ function getLinearEquationRoot(a, b) {
   // throw new Error('Not implemented');
 }
 
-
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
  * coordinates in Cartesian plane.
@@ -115,9 +112,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const up = (x1 * x2) + (y1 * y2);
-  const down = Math.sqrt((x1 * x1) + (y1 * y1)) * Math.sqrt(x2 * x2 + y2 * y2);
-  const cos = (up) / (down);
+  const up = x1 * x2 + y1 * y2;
+  const down = Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2);
+  const cos = up / down;
   const angle = Math.acos(cos);
   return angle;
   // throw new Error('Not implemented');
@@ -140,7 +137,6 @@ function getLastDigit(value) {
   return +arr.pop();
   // throw new Error('Not implemented');
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -197,7 +193,7 @@ function roundToPowerOfTen(num, pow) {
   if (pow === 0) {
     return num;
   }
-  return Math.round(num / (10 ** pow)) * (10 ** pow);
+  return Math.round(num / 10 ** pow) * 10 ** pow;
   // throw new Error('Not implemented');
 }
 
